@@ -1,13 +1,8 @@
-# Talkdesk Challenge
 
-Welcome to your repository.
+## Quick start
 
-We hope that with this challenge you'll not only test your development mettle but also have fun in the process.
+1. Clone this repo using `git clone --depth=1 git@github.com:talkdesk-challenges/challenge_luisteixeira.git`
+1. Run `npm install` to install dependencies.
+1. At this point you can run `npm start` to see the example app at `http://localhost:3000`.
 
-Please read our challenge repository (https://github.com/talkdesk-challenges/challenges) and choose one the problems we have there for you. (Please create an issue stating which challenge you have chosen)
-
-Also, Feel free to delete this readme and add your own. 
-
-
-
-
+Now you're ready to rumble!
