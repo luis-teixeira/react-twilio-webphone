@@ -1,23 +1,37 @@
-/**
- *
- * App.react.js
- *
- * This component is the skeleton around the actual pages, and should only
- * contain code that should be seen on all pages. (e.g. navigation bar)
- *
- * NOTE: while this component should technically be a stateless functional
- * component (SFC), hot reloading does not currently support SFCs. If hot
- * reloading is not a necessity for you then you can refactor it and remove
- * the linting exception.
- */
+/* global Twilio b:true */
 
 import React from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
-export default class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+import {
+  getTWToken,
+  twAppReady,
+  twAppError,
+  twAppConnect,
+  twAppDisconnect,
+  twAppIncoming,
+  twAppCancel,
+} from './actions';
 
-  static propTypes = {
-    children: React.PropTypes.node,
-  };
+// import {
+//   twilioReady,
+//   twilioConnected,
+//   twilioCalling,
+//   twilioIdentity,
+// } from './selectors';
+
+export class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+
+  componentDidMount() {
+    this.props.getTWToken();
+    Twilio.Device.ready(() => { this.props.onTWAppReady(); });
+    Twilio.Device.error((error) => this.props.onTWAppError(error));
+    Twilio.Device.connect((conn) => this.props.onTWAppConnect(conn));
+    Twilio.Device.disconnect((conn) => this.props.onTWAppDisconnect(conn));
+    Twilio.Device.incoming((conn) => this.props.onTWAppIncoming(conn));
+    Twilio.Device.cancel((conn) => this.props.onTWAppCancel(conn));
+  }
 
   render() {
     return (
@@ -27,3 +41,40 @@ export default class App extends React.PureComponent { // eslint-disable-line re
     );
   }
 }
+
+App.propTypes = {
+  children: React.PropTypes.node,
+  // isTwilioReady: React.PropTypes.bool,
+  // isTwilioConnected: React.PropTypes.bool,
+  // isTwilioCalling: React.PropTypes.bool,
+  // getTwilioIdentity: React.PropTypes.string,
+  getTWToken: React.PropTypes.func,
+  onTWAppReady: React.PropTypes.func,
+  onTWAppError: React.PropTypes.func,
+  onTWAppDisconnect: React.PropTypes.func,
+  onTWAppConnect: React.PropTypes.func,
+  onTWAppIncoming: React.PropTypes.func,
+  onTWAppCancel: React.PropTypes.func,
+};
+
+const mapStateToProps = createStructuredSelector({
+  // isTwilioReady: twilioReady(),
+  // isTwilioConnected: twilioConnected(),
+  // isTwilioCalling: twilioCalling(),
+  // getTwilioIdentity: twilioIdentity(),
+});
+
+function mapDispatchToProps(dispatch) {
+  return {
+    getTWToken: () => dispatch(getTWToken()),
+    onTWAppReady: () => dispatch(twAppReady()),
+    onTWAppError: () => dispatch(twAppError()),
+    onTWAppConnect: () => dispatch(twAppConnect()),
+    onTWAppDisconnect: () => dispatch(twAppDisconnect()),
+    onTWAppIncoming: (conn) => dispatch(twAppIncoming(conn)),
+    onTWAppCancel: (conn) => dispatch(twAppCancel(conn)),
+    dispatch,
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,12 +1,10 @@
-/*
- * AppConstants
- * Each action has a corresponding type, which the reducer knows and picks up on.
- * To avoid weird typos between the reducer and the actions, we save them as
- * constants here. We prefix them with 'yourproject/YourComponent' so we avoid
- * reducers accidentally picking up actions they shouldn't.
- *
- * Follow this format:
- * export const YOUR_ACTION_CONSTANT = 'yourproject/YourContainer/YOUR_ACTION_CONSTANT';
- */
-
 export const DEFAULT_LOCALE = 'en';
+export const GET_TW_TOKEN = 'app/App/GET_TW_TOKEN';
+export const GET_TW_TOKEN_SUCCESS = 'app/App/GET_TW_TOKEN_SUCCESS';
+export const GET_TW_TOKEN_ERROR = 'app/App/GET_TW_TOKEN_ERROR';
+export const TW_APP_READY = 'app/App/TW_APP_READY';
+export const TW_APP_ERROR = 'app/App/TW_APP_ERROR';
+export const TW_APP_CONNECT = 'app/App/TW_APP_CONNECT';
+export const TW_APP_DISCONNECT = 'app/App/TW_APP_DISCONNECT';
+export const TW_APP_INCOMING = 'app/App/TW_APP_INCOMING';
+export const TW_APP_CANCEL = 'app/App/TW_APP_CANCEL';
