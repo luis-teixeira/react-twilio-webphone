@@ -23,13 +23,15 @@ export default function createRoutes(store) {
       getComponent(nextState, cb) {
         const importModules = Promise.all([
           System.import('containers/App/sagas'),
+          System.import('containers/DialPad/reducer'),
           System.import('containers/DialPad'),
         ]);
 
         const renderRoute = loadModule(cb);
 
-        importModules.then(([sagas, component]) => {
+        importModules.then(([sagas, dialPadReducer, component]) => {
           injectSagas(sagas.default);
+          injectReducer('dialPad', dialPadReducer.default);
           renderRoute(component);
         });
 

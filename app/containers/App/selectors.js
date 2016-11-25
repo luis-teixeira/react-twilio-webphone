@@ -8,12 +8,12 @@ const selectTwilioToken = () => createSelector(
   (twilioTokenState) => twilioTokenState.get('token')
 );
 
-// // SELECT Twilio is ready
-// const selectTwilioReady = () => createSelector(
-//   selectGlobal(),
-//   (twilioReadyState) => twilioReadyState.get('ready')
-// );
-//
+// SELECT Twilio is ready
+const selectTwilioReady = () => createSelector(
+  selectGlobal(),
+  (twilioReadyState) => twilioReadyState.get('ready')
+);
+
 // // SELECT Twilio is connect
 // const selectTwilioConnected = () => createSelector(
 //   selectGlobal(),
@@ -64,7 +64,7 @@ const selectLocationState = () => {
 export {
   // selectLoading,
   selectTwilioToken,
-  // selectTwilioReady,
+  selectTwilioReady,
   // selectTwilioIncoming,
   // selectTwilioConnected,
   selectLocationState,

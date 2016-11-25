@@ -15,7 +15,7 @@ import Wrapper from './Wrapper';
 function Button(props) {
   // Render an anchor tag
   let button = (
-    <A href={props.href} onClick={props.onClick}>
+    <A href={props.href} onClick={props.onClick} {...props} >
       {Children.toArray(props.children)}
     </A>
   );
@@ -23,7 +23,7 @@ function Button(props) {
   // If the Button has a handleRoute prop, we want to render a button
   if (props.handleRoute) {
     button = (
-      <StyledButton onClick={props.handleRoute}>
+      <StyledButton onClick={props.handleRoute} {...props} >
         {Children.toArray(props.children)}
       </StyledButton>
     );

@@ -6,8 +6,8 @@
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
-  header: {
-    id: 'app.components.DialPad.header',
-    defaultMessage: 'This is DialPad components !',
+  info: {
+    id: 'app.components.DialPadWrapper.info',
+    defaultMessage: 'Phone numbers should be formatted with a "+" and country code e.g., +16175551212 (E.164 format).',
   },
 });
