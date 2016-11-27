@@ -66,14 +66,13 @@ export class DialPad extends React.PureComponent { // eslint-disable-line react/
    * Call Button Click Handler
    */
   onCall = () => {
-    // const { number } = this.props;
-    //
-    // if (String(number).length >= 5) {
-    //   const params = {
-    //     To: String(number),
-    //   };
-    //   Twilio.Device.connect(params);
-    // }
+    const { phoneNumber } = this.props;
+    if (+phoneNumber.length >= 5) {
+      const params = {
+        To: +phoneNumber,
+      };
+      Twilio.Device.connect(params);
+    }
   };
 
   /**
@@ -104,7 +103,7 @@ export class DialPad extends React.PureComponent { // eslint-disable-line react/
               <DialPadKey key={key.value} onClick={this.onDialButtonClick} value={key.value} alias={key.alias} />
             )}
           </DialPadWrapper>
-          <Button handleClick={this.onCall} success block xl >
+          <Button onClick={this.onCall} success block xl >
             <Icon name="call" inverted />
           </Button>
           <Info>
@@ -125,7 +124,6 @@ DialPad.propTypes = {
 };
 
 const mapStateToProps = createStructuredSelector({
-  // show: selectShowDialPadState(),
   phoneNumber: selectCurrentNumber(),
   isTwilioReady: selectTwilioReady(),
 });

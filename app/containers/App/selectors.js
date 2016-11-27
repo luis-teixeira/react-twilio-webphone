@@ -14,35 +14,29 @@ const selectTwilioReady = () => createSelector(
   (twilioReadyState) => twilioReadyState.get('ready')
 );
 
-// // SELECT Twilio is connect
-// const selectTwilioConnected = () => createSelector(
-//   selectGlobal(),
-//   (twilioConnectState) => twilioConnectState.get('connect')
-// );
-//
-// // SELECT Twilio is IncomeCall
-// const selectTwilioIncoming = () => createSelector(
-//   selectGlobal(),
-//   (twilioIncomingState) => twilioIncomingState.get('conn')
-// );
-//
-// // SELECT Twilio is calling
-// const selectTwilioCalling = () => createSelector(
-//   selectGlobal(),
-//   (twilioCallingState) => twilioCallingState.get('calling')
-// );
-//
-// // SELECT Twilio identity
-// const selectTwilioIdentity = () => createSelector(
-//   selectGlobal(),
-//   (twilioIdentityState) => twilioIdentityState.get('identity')
-// );
-//
-// // SELECT Twilio incoming from
-// const selectTwilioIncomingFrom = () => createSelector(
-//   selectGlobal(),
-//   (twilioIncomingFromState) => twilioIncomingFromState.get('From')
-// );
+// SELECT Twilio is connect
+const selectTwilioConnected = () => createSelector(
+  selectGlobal(),
+  (twilioConnectState) => twilioConnectState.get('makingCall')
+);
+
+// SELECT Twilio is IncomeCall
+const selectTwilioIncoming = () => createSelector(
+  selectGlobal(),
+  (twilioIncomingState) => twilioIncomingState.get('conn')
+);
+
+// SELECT Twilio is calling
+const selectTwilioCalling = () => createSelector(
+  selectGlobal(),
+  (twilioCallingState) => twilioCallingState.get('incomingCall')
+);
+
+// SELECT Twilio incoming from
+const selectTwilioIncomingFrom = () => createSelector(
+  selectGlobal(),
+  (twilioIncomingFromState) => twilioIncomingFromState.get('From')
+);
 
 // selectLocationState expects a plain JS object for the routing state
 const selectLocationState = () => {
@@ -65,10 +59,9 @@ export {
   // selectLoading,
   selectTwilioToken,
   selectTwilioReady,
-  // selectTwilioIncoming,
-  // selectTwilioConnected,
+  selectTwilioIncoming,
+  selectTwilioConnected,
   selectLocationState,
-  // selectTwilioCalling,
-  // selectTwilioIdentity,
-  // selectTwilioIncomingFrom,
+  selectTwilioCalling,
+  selectTwilioIncomingFrom,
 };

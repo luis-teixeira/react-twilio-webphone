@@ -50,12 +50,12 @@ export function* initTwilioDevice() {
 export function* globalData() {
   // Fork watcher so we can continue execution
   const watcher = yield fork(getTWTokenWatcher);
-  const watcheSuccess = yield fork(initTwilioDevice);
+  const watcherSuccess = yield fork(initTwilioDevice);
 
   // Suspend execution until location changes
   yield take(LOCATION_CHANGE);
   yield cancel(watcher);
-  yield cancel(watcheSuccess);
+  yield cancel(watcherSuccess);
 }
 
 // Bootstrap sagas

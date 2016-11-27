@@ -14,10 +14,10 @@ import { fromJS } from 'immutable';
 
 // The initial state of the App
 const initialState = fromJS({
-  calling: false,
+  incomingCall: false,
+  makingCall: false,
   error: false,
   ready: false,
-  connect: false,
   conn: null,
   From: null,
   token: null,
@@ -42,32 +42,32 @@ function appReducer(state = initialState, action) {
     case TW_APP_READY:
       return state
         .set('ready', true)
-        .set('connect', false)
-        .set('calling', false);
+        .set('makingCall', false)
+        .set('incomingCall', false);
     case TW_APP_ERROR:
       return state
         .set('ready', true)
         .set('error', action.error);
     case TW_APP_INCOMING:
       return state
-        .set('connect', false)
-        .set('calling', true)
+        .set('makingCall', false)
+        .set('incomingCall', true)
         .set('From', action.conn.parameters.From)
         .set('conn', action.conn);
     case TW_APP_CANCEL:
       return state
-        .set('connect', false)
-        .set('calling', false)
+        .set('makingCall', false)
+        .set('incomingCall', false)
         .set('conn', action.conn);
     case TW_APP_CONNECT:
       return state
-        .set('connect', true)
-        .set('calling', false)
+        .set('makingCall', true)
+        .set('incomingCall', false)
         .set('conn', action.conn);
     case TW_APP_DISCONNECT:
       return state
-        .set('connect', false)
-        .set('calling', false)
+        .set('makingCall', false)
+        .set('incomingCall', false)
         .set('conn', action.conn);
     default:
       return state;

@@ -10,7 +10,7 @@ export const keysConfig = [
   { value: '9', alias: 'wxyz' },
   { value: '+', alias: '' },
   { value: '0', alias: '+' },
-  { value: '#', alias: '#' },
+  { value: '#', alias: '' },
 ];
 
 export default keysConfig;

@@ -2,6 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import InOutCall from 'containers/InOutCall';
 
 import {
   getTWToken,
@@ -13,12 +14,12 @@ import {
   twAppCancel,
 } from './actions';
 
-// import {
-//   twilioReady,
-//   twilioConnected,
-//   twilioCalling,
-//   twilioIdentity,
-// } from './selectors';
+import {
+  selectTwilioConnected,
+  selectTwilioCalling,
+  selectTwilioIncomingFrom,
+  selectTwilioIncoming,
+} from './selectors';
 
 export class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
@@ -32,9 +33,15 @@ export class App extends React.PureComponent { // eslint-disable-line react/pref
     Twilio.Device.cancel((conn) => this.props.onTWAppCancel(conn));
   }
 
+  onReject() {
+    this.props.onTWAppReady();
+  }
+
   render() {
+    const { isMakingCall, isIncomingCall } = this.props;
     return (
       <div>
+        { (isMakingCall || isIncomingCall) && (<InOutCall {...this.props} />) }
         {React.Children.toArray(this.props.children)}
       </div>
     );
@@ -43,10 +50,8 @@ export class App extends React.PureComponent { // eslint-disable-line react/pref
 
 App.propTypes = {
   children: React.PropTypes.node,
-  // isTwilioReady: React.PropTypes.bool,
-  // isTwilioConnected: React.PropTypes.bool,
-  // isTwilioCalling: React.PropTypes.bool,
-  // getTwilioIdentity: React.PropTypes.string,
+  isMakingCall: React.PropTypes.bool,
+  isIncomingCall: React.PropTypes.bool,
   getTWToken: React.PropTypes.func,
   onTWAppReady: React.PropTypes.func,
   onTWAppError: React.PropTypes.func,
@@ -57,10 +62,10 @@ App.propTypes = {
 };
 
 const mapStateToProps = createStructuredSelector({
-  // isTwilioReady: twilioReady(),
-  // isTwilioConnected: twilioConnected(),
-  // isTwilioCalling: twilioCalling(),
-  // getTwilioIdentity: twilioIdentity(),
+  isMakingCall: selectTwilioConnected(),
+  isIncomingCall: selectTwilioCalling(),
+  callFrom: selectTwilioIncomingFrom(),
+  conn: selectTwilioIncoming(),
 });
 
 function mapDispatchToProps(dispatch) {
