@@ -15,6 +15,11 @@ export const appLocales = [
   'pt',
 ];
 
+export const appLocalesSelectsOpt = [
+  { text: 'English', value: 'en' },
+  { text: 'Português', value: 'pt' },
+];
+
 import enTranslationMessages from './translations/en.json';
 import ptTranslationMessages from './translations/pt.json';
 

@@ -5,5 +5,7 @@
   "app.containers.InOutCall.callingOut": "A tentar fazer uma chamada. Espero que consiga",
   "app.containers.InOutCall.accept": "Atender",
   "app.containers.InOutCall.hangout": "Desligar",
-  "app.containers.CallLogs.header": "Chamadas Recentes"
+  "app.containers.CallLogs.header": "Chamadas Recentes",
+  "app.containers.Options.header": "Opções",
+  "app.components.Options.language": "Escolher Lingua"
 }

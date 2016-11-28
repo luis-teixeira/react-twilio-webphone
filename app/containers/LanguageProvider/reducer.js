@@ -5,6 +5,8 @@
  */
 
 import { fromJS } from 'immutable';
+import { loadState } from 'utils/localStorage';
+
 import {
   CHANGE_LOCALE,
 } from './constants';
@@ -13,7 +15,7 @@ import {
 } from '../App/constants'; // eslint-disable-line
 
 const initialState = fromJS({
-  locale: DEFAULT_LOCALE,
+  locale: loadState() ? loadState().locale : DEFAULT_LOCALE,
 });
 
 function languageProviderReducer(state = initialState, action) {

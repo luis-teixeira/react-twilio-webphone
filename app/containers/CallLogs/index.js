@@ -12,7 +12,7 @@ import messages from './messages';
 
 import Loading from 'components/Loading';
 import Card from 'components/Card';
-import CallLogsBody from 'components/CallLogsBody';
+import CardBody from 'components/CardBody';
 import OverFlowContent from 'components/OverFlowContent';
 import CallLogsEntries from 'components/CallLogsEntries';
 
@@ -42,12 +42,12 @@ export class CallLogs extends React.PureComponent { // eslint-disable-line react
 
     return (
       <Card>
-        <CallLogsBody>
+        <CardBody>
           <h3 className="title"><strong><FormattedMessage {...messages.header} /></strong></h3>
           <OverFlowContent height="calc(100vh - 100px)">
             {callsListContent}
           </OverFlowContent>
-        </CallLogsBody>
+        </CardBody>
       </Card>
     );
   }

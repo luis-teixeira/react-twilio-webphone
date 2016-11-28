@@ -11,7 +11,7 @@ import {
 } from './constants';
 
 const initialState = fromJS({
-  phoneNumber: '+351932555526',
+  phoneNumber: '',
 });
 
 function dialPadReducer(state = initialState, action) {

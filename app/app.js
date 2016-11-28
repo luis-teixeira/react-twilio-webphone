@@ -19,8 +19,10 @@ import { Provider } from 'react-redux';
 import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { useScroll } from 'react-router-scroll';
+import throttle from 'lodash/throttle';
 import LanguageProvider from 'containers/LanguageProvider';
 import configureStore from './store';
+import { saveState } from 'utils/localStorage';
 
 // Import i18n messages
 import { translationMessages } from './i18n';
@@ -33,8 +35,14 @@ import 'sanitize.css/sanitize.css';
 // Optionally, this could be changed to leverage a created history
 // e.g. `const browserHistory = useRouterHistory(createBrowserHistory)();`
 const initialState = {};
-// TODO Persist data
+
 const store = configureStore(initialState, browserHistory);
+
+store.subscribe(throttle(() => {
+  saveState({
+    locale: store.getState().getIn(['language', 'locale']),
+  });
+}, 1000));
 
 // Sync history and store, as the react-router-redux reducer
 // is under the non-default key ("routing"), selectLocationState
