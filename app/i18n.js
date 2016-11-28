@@ -29,7 +29,6 @@ export const formatTranslationMessages = (locale, messages) => {
     if (locale === DEFAULT_LOCALE) {
       formattedMessages[messageKey] = messages[messageKey];
     } else {
-      console.log(messages[messageKey]);
       formattedMessages[messageKey] = messages[messageKey] || defaultFormattedMessages[messageKey];
     }
   }

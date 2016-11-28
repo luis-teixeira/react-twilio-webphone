@@ -7,7 +7,7 @@ const router = express.Router(); /* eslint new-cap: ["error", { "capIsNew": fals
 // TWILIO POC
 // Register API middleware
 // -----------------------------------------------------------------------------
-twilio(config.accountSid, config.authToken);
+const client = twilio(config.accountSid, config.authToken);
 
 /**
  * Get Twilio Token
@@ -47,6 +47,19 @@ router.post('/voice', function voice(req, res) {
 
   res.set('Content-Type', 'text/xml');
   res.send(twiml.toString());
+});
+
+/**
+ * Get Call List
+ */
+router.get('/calls/list', (req, res) => {
+  client.calls.get({}, (err, data) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.send(data.calls);
+    }
+  });
 });
 
 module.exports = router;

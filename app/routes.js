@@ -38,6 +38,26 @@ export default function createRoutes(store) {
         importModules.catch(errorLoading);
       },
     }, {
+      path: 'call-logs',
+      name: 'callLogs',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/CallLogs/reducer'),
+          System.import('containers/CallLogs/sagas'),
+          System.import('containers/CallLogs'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('callLogs', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {

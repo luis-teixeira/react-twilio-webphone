@@ -4,5 +4,6 @@
   "app.containers.InOutCall.callingIn": "Estão a tentar entrar em contacto consigo. Espero que consigam!",
   "app.containers.InOutCall.callingOut": "A tentar fazer uma chamada. Espero que consiga",
   "app.containers.InOutCall.accept": "Atender",
-  "app.containers.InOutCall.hangout": "Desligar"
+  "app.containers.InOutCall.hangout": "Desligar",
+  "app.containers.CallLogs.header": "Chamadas Recentes"
 }
