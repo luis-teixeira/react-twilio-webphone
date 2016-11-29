@@ -20,11 +20,25 @@ import {
   selectTwilioCalling,
   selectTwilioIncomingFrom,
   selectTwilioIncoming,
+  selectTwilioReady,
 } from './selectors';
 
 export class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
   componentDidMount() {
+    this.initPhoneApp();
+  }
+
+  shouldComponentUpdate(nextProps) {
+    if (!nextProps.ready) { this.initPhoneApp(); }
+    return true;
+  }
+
+  onReject() {
+    this.props.onTWAppReady();
+  }
+
+  initPhoneApp() {
     this.props.getTWToken();
     Twilio.Device.ready(() => { this.props.onTWAppReady(); });
     Twilio.Device.error((error) => this.props.onTWAppError(error));
@@ -32,10 +46,6 @@ export class App extends React.PureComponent { // eslint-disable-line react/pref
     Twilio.Device.disconnect((conn) => this.props.onTWAppDisconnect(conn));
     Twilio.Device.incoming((conn) => this.props.onTWAppIncoming(conn));
     Twilio.Device.cancel((conn) => this.props.onTWAppCancel(conn));
-  }
-
-  onReject() {
-    this.props.onTWAppReady();
   }
 
   render() {
@@ -68,6 +78,7 @@ const mapStateToProps = createStructuredSelector({
   isIncomingCall: selectTwilioCalling(),
   callFrom: selectTwilioIncomingFrom(),
   conn: selectTwilioIncoming(),
+  ready: selectTwilioReady(),
 });
 
 function mapDispatchToProps(dispatch) {

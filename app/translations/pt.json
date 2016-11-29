@@ -1,4 +1,7 @@
 {
+  "app.containers.MainNavBar.dialPad": "Teclado",
+  "app.containers.MainNavBar.callLogs": "Chamadas",
+  "app.containers.MainNavBar.options": "Opções",
   "app.components.DialPad.info": "O número de telefone tem de ter o Formato Internacional (E.164 format). ex: +351929222990.",
   "app.containers.InOutCall.unknown": "Desconhecido",
   "app.containers.InOutCall.callingIn": "Estão a tentar entrar em contacto consigo. Espero que consigam!",
