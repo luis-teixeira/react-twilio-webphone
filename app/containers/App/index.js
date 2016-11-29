@@ -52,9 +52,14 @@ export class App extends React.PureComponent { // eslint-disable-line react/pref
     const { isMakingCall, isIncomingCall } = this.props;
     return (
       <div>
-        <MainNavBar />
+
         { (isMakingCall || isIncomingCall) && (<InOutCall {...this.props} />) }
-        {React.Children.toArray(this.props.children)}
+
+        { (!isMakingCall || !isIncomingCall) && (
+          <div>
+            <MainNavBar />
+            {React.Children.toArray(this.props.children)}
+          </div>)}
       </div>
     );
   }
