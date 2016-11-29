@@ -23,7 +23,7 @@ export class Options extends React.PureComponent { // eslint-disable-line react/
   render() {
     return (
       <Card>
-        <CardBody height="calc(100vh - 100px)" >
+        <CardBody height="calc(100vh - 169px)" >
           <h3 className="title"><FormattedMessage {...messages.header} /></h3>
           <Form>
             <Form.Field>

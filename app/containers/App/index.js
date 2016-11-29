@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import InOutCall from 'containers/InOutCall';
+import MainNavBar from 'containers/MainNavBar';
 
 import {
   getTWToken,
@@ -41,6 +42,7 @@ export class App extends React.PureComponent { // eslint-disable-line react/pref
     const { isMakingCall, isIncomingCall } = this.props;
     return (
       <div>
+        <MainNavBar />
         { (isMakingCall || isIncomingCall) && (<InOutCall {...this.props} />) }
         {React.Children.toArray(this.props.children)}
       </div>

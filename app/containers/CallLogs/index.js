@@ -44,7 +44,7 @@ export class CallLogs extends React.PureComponent { // eslint-disable-line react
       <Card>
         <CardBody>
           <h3 className="title"><strong><FormattedMessage {...messages.header} /></strong></h3>
-          <OverFlowContent height="calc(100vh - 100px)">
+          <OverFlowContent height="calc(100vh - 222px)">
             {callsListContent}
           </OverFlowContent>
         </CardBody>
