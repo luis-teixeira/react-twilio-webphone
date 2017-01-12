@@ -1,7 +1,7 @@
-<p align="center">
-  <img src="https://cloud.githubusercontent.com/assets/3420791/21895515/ef02ad7e-d8da-11e6-9119-817552ee28d3.gif" width="300px" />
-  <img src="https://cloud.githubusercontent.com/assets/3420791/21895513/eefc76b6-d8da-11e6-8c3b-3a14c74788ab.gif" width="300px" />
-  <img src="https://cloud.githubusercontent.com/assets/3420791/21895514/eefcc094-d8da-11e6-863c-d5240bb74820.gif" width="300px" />
+<p >
+  <img src="https://cloud.githubusercontent.com/assets/3420791/21895515/ef02ad7e-d8da-11e6-9119-817552ee28d3.gif" width="280px" />
+  <img src="https://cloud.githubusercontent.com/assets/3420791/21895513/eefc76b6-d8da-11e6-8c3b-3a14c74788ab.gif" width="280px" />
+  <img src="https://cloud.githubusercontent.com/assets/3420791/21895514/eefcc094-d8da-11e6-863c-d5240bb74820.gif" width="280px" />
 </p>
 
 | Config&nbsp;Value  | Description |
