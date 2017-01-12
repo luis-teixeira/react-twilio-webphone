@@ -14,7 +14,7 @@ Twilio&nbsp;Phone&nbsp; | A Twilio phone number in [E.164 format](https://en.wik
 
 ## Quick start
 
-1. Clone this repo using `git clone --depth=1 git@github.com:talkdesk-challenges/challenge_luisteixeira.git`
+1. Clone this repo using `git clone --depth=1 git@github.com:luis-teixeira/react-twilio-webphone.git`
 1. Run `npm install` to install dependencies.
 1. Edit `server/twilio/config.js` with the four configuration parameters we gathered from above.
 1. At this point you can run `npm start:tunnel`.
