@@ -1,3 +1,9 @@
+<p align="center">
+  <img src="https://cloud.githubusercontent.com/assets/3420791/21895515/ef02ad7e-d8da-11e6-9119-817552ee28d3.gif" width="300px" />
+  <img src="https://cloud.githubusercontent.com/assets/3420791/21895513/eefc76b6-d8da-11e6-8c3b-3a14c74788ab.gif" width="300px" />
+  <img src="https://cloud.githubusercontent.com/assets/3420791/21895514/eefcc094-d8da-11e6-863c-d5240bb74820.gif" width="300px" />
+</p>
+
 | Config&nbsp;Value  | Description |
 | :-------------  |:------------- |
 Account&nbsp;SID | Your primary Twilio account identifier - find this [in the console here](https://www.twilio.com/console).
@@ -21,4 +27,4 @@ Twilio&nbsp;Phone&nbsp; | A Twilio phone number in [E.164 format](https://en.wik
 
 You should now be ready to rock! Make some phone calls. Open it on another device and call yourself. Note that Twilio Client requires WebRTC enabled browsers, so Edge and Internet Explorer will not work for testing. We'd recommend Google Chrome or Mozilla Firefox instead.
 
-### [video demo](http://www.mynameisluis.com/assets/demoHD.mov)
+### [download video demo](http://www.mynameisluis.com/assets/demoHD.mov)
