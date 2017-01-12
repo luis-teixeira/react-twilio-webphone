@@ -29,10 +29,15 @@ export class App extends React.PureComponent { // eslint-disable-line react/pref
     this.initPhoneApp();
   }
 
-  shouldComponentUpdate(nextProps) {
-    if (!nextProps.ready) { this.initPhoneApp(); }
-    return true;
+  componentWillReceiveProps(nextProps) {
+    if (!nextProps.ready) { this.initPhoneApp(); return true; }
+    return false;
   }
+
+  // shouldComponentUpdate(nextProps) {
+  //   if (!nextProps.ready) { this.initPhoneApp(); }
+  //   return true;
+  // }
 
   onReject() {
     this.props.onTWAppReady();

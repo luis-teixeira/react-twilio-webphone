@@ -17,7 +17,7 @@ function DialPadInput(props) {
           <Icon name="angle right" />
         </Button>
       )}
-      <input value={props.number} readOnly className={+props.number.length > 9 && 'smaller'} />
+      <input value={props.number} className={props.number.length > 9 && 'smaller'} />
       { props.number && (
         <Button >
           <Icon name="remove circle" onClick={props.onDelete} />

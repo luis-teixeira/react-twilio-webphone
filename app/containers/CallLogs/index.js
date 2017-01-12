@@ -30,7 +30,7 @@ export class CallLogs extends React.PureComponent { // eslint-disable-line react
   }
 
   render() {
-    let callsListContent = (<Loading />);
+    let callsListContent = <Loading />;
 
     const { callsList } = this.props;
 
